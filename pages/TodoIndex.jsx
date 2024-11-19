@@ -26,13 +26,7 @@ export function TodoIndex() {
     const [filterBy, setFilterBy] = useState(defaultFilter)
 
     useEffect(() => {
-        // setSearchParams(filterBy)
-        // todoService.query(filterBy)
-        //     .then(todos => setTodos(todos))
-        //     .catch(err => {
-        //         console.eror('err:', err)
-        //         showErrorMsg('Cannot load todos')
-        //     })
+        setSearchParams(filterBy)
         loadTodos(filterBy)
         .then(todos => console.log('TODOS Index:', todos))
         .catch(err => {
