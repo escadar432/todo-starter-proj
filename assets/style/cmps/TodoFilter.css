@@ -1,6 +1,7 @@
 .todo-filter {
-    background-color: var(--clr2bg);
+    color: rgb(26, 24, 24);
     padding: 1em;
     margin: 1em 0;
+    border: 1px solid var(--clr2bg-light);
 }
 

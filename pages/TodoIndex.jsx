@@ -3,13 +3,20 @@ import { TodoList } from "../cmps/TodoList.jsx"
 import { DataTable } from "../cmps/data-table/DataTable.jsx"
 import { todoService } from "../services/todo.service.js"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
+import { loadTodos } from "../store/actions/todo.actions.js"
 
 const { useState, useEffect } = React
 const { Link, useSearchParams } = ReactRouterDOM
+const { useSelector, useDispatch } = ReactRedux
+
+
 
 export function TodoIndex() {
 
-    const [todos, setTodos] = useState(null)
+    const todos = useSelector(storeState => storeState.todos)
+   // const [todos, setTodos] = useState(null)
+
+   const dispatch = useDispatch()
 
     // Special hook for accessing search-params:
     const [searchParams, setSearchParams] = useSearchParams()
@@ -19,13 +26,19 @@ export function TodoIndex() {
     const [filterBy, setFilterBy] = useState(defaultFilter)
 
     useEffect(() => {
-        setSearchParams(filterBy)
-        todoService.query(filterBy)
-            .then(todos => setTodos(todos))
-            .catch(err => {
-                console.eror('err:', err)
-                showErrorMsg('Cannot load todos')
-            })
+        // setSearchParams(filterBy)
+        // todoService.query(filterBy)
+        //     .then(todos => setTodos(todos))
+        //     .catch(err => {
+        //         console.eror('err:', err)
+        //         showErrorMsg('Cannot load todos')
+        //     })
+        loadTodos(filterBy)
+        .then(todos => console.log('TODOS Index:', todos))
+        .catch(err => {
+            console.error('err:', err)
+            showErrorMsg('Cannot load todos')
+        })
     }, [filterBy])
 
     function onRemoveTodo(todoId) {
@@ -58,7 +71,7 @@ export function TodoIndex() {
         <section className="todo-index">
             <TodoFilter filterBy={filterBy} onSetFilterBy={setFilterBy} />
             <div>
-                <Link to="/todo/edit" className="btn" >Add Todo</Link>
+                <Link to="/todo/edit" className="btn add" >Add Todo</Link>
             </div>
             <h2>Todos List</h2>
             <TodoList todos={todos} onRemoveTodo={onRemoveTodo} onToggleTodo={onToggleTodo} />

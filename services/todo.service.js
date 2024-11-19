@@ -28,6 +28,7 @@ function query(filterBy = {}) {
             if (filterBy.importance) {
                 todos = todos.filter(todo => todo.importance >= filterBy.importance)
             }
+            console.log("TODOS sERVICE:",todos );
 
             return todos
         })
@@ -90,7 +91,7 @@ function _createTodos() {
     if (!todos || !todos.length) {
         todos = []
         const txts = ['Learn React', 'Master CSS', 'Practice Redux']
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 8; i++) {
             const txt = txts[utilService.getRandomIntInclusive(0, txts.length - 1)]
             todos.push(_createTodo(txt + (i + 1), utilService.getRandomIntInclusive(1, 10)))
         }

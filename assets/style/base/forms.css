@@ -1,17 +1,25 @@
 button,
 .btn {
     color: var(--clr2bg);
+    color: rgb(0 34 0);
     cursor: pointer;
     margin: 0.5em;
-    border: 0;
     padding: 0.5em 0.8em;
+
     border-radius: 4px;
+    border: 1px solid;
+    font-weight: bold;
+}
+
+.btn.add {
+    border: 1px solid black;
+    font-weight: bold;
 }
 
 button:hover,
 .btn:hover {
     border: 1px solid black;
-    color: rgb(102, 185, 102);
+    color: rgb(78, 128, 78);
     font-weight: bold;
 
     transition: 0.3s;

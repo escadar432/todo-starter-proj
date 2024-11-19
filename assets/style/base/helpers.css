@@ -36,10 +36,6 @@
 
 /* font awsome */
 
-.fa {
-    font-family: fa;
-}
-
 .fa.fa-facebook::before {
     content: "\f39e";
 }
