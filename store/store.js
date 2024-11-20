@@ -4,7 +4,7 @@ const { createStore, compose } = Redux
 
 export const SET_TODO = 'SET_TODO'
 export const REMOVE_TODO = 'REMOVE_TODO'
-
+export const EDIT_TODO = 'EDIT_TODO'
 
 
 const initialState = {
@@ -23,6 +23,11 @@ function appReducer(state = initialState, cmd = {}) {
             return {
                 ...state,
                 todos: state.todos.filter(todo => todo._id !== cmd.todoId)
+            }
+        } case EDIT_TODO: {
+            return {
+                ...state,
+                todos: state.todos.map(todo => todo._id === cmd.todo._id ? cmd.todo : todo), // state.todos(prevTodos)  => prevTodos.map(currTodo => (currTodo._id !== todo._id) ? currTodo : { ...savedTodo }))
             }
         }
         default:
