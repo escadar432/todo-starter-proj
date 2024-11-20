@@ -11,8 +11,19 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    border: 2px solid var(--clr2bg-light);
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    border: 3px solid var(--clr2bg-light);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 0px 4px;
     
 }
+.todo-list li button{
+    border: 1px solid lightgrey;
+    background-color: transparent;
+    cursor: pointer;
+    margin-inline: 2px;
+
+}
+/* .todo-list li img{
+    width: 100px;
+    height: 100px;
+} */

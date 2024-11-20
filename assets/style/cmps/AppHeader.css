@@ -1,12 +1,17 @@
 .app-header {
     background-color: var(--clr1);
     color: var(--clr2bg-light);
+    height: 150px;
+
     
 }
 
 .header-container {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    font-size:large;
+    padding: 0 1em;
 
 }
 
@@ -24,6 +29,10 @@ a.active {
     color: rgb(241, 212, 241);
     font-weight: 600;
     text-decoration: underline;
+}
+
+img.logo {
+    width: 50px;
 }
 
 
